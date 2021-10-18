@@ -6,8 +6,9 @@ print("======== SISTEMA DE INSCRIÇÕES ========")
 opcao = ''
 usuarios = [{"nome": "João Silva", "email": "joaosilva@email.com"}]
 
+
 def mostrar_menu():
-    print ("\n O que deseja fazer?\n")
+    print("\n O que deseja fazer?\n")
 
     print("1. Novo cadastro")
     print("2. Listar usuários por ordem de cadastro")
@@ -18,13 +19,16 @@ def mostrar_menu():
     print("7. Fechar")
 
     global opcao
-    opcao = input("\nDigite o número correspondente a ação que deseja realizar: ")
+    opcao = input(
+        "\nDigite o número correspondente a ação que deseja realizar: ")
+
 
 mostrar_menu()
 
+
 def cadastro():
     nome = input("\nDigite o nome completo do usuário: ")
-    email = input ("Digite o email do usuário: ")
+    email = input("Digite o email do usuário: ")
 
     nome_maiusculo = string.capwords(nome)
 
@@ -33,29 +37,38 @@ def cadastro():
     print("\n-------- USUÁRIO CADASTRADO COM SUCESSO -------- ")
     mostrar_menu()
 
+
 def mostrar_usuarios_por_cadastro():
     for usuario in usuarios:
-        print("Nome: " + usuario['nome'] + "  Email: " + usuario['email']) 
+        print("Nome: " + usuario['nome'] + "  Email: " + usuario['email'])
     mostrar_menu()
 
 # def mostrar_usuarios_por_ordem_alfabetica()
 
+
 def buscar_usuario_pelo_nome():
-    nome_busca = input("\nQual usuário deseja buscar? Favor digitar nome completo: ")
+    nome_busca = input(
+        "\nQual usuário deseja buscar? Favor digitar nome completo: ")
+    nome_maiusculo = string.capwords(nome_busca)
+    usuario_encontrado = False
     for usuario in usuarios:
-        if usuario['nome'] == nome_busca:
-            resultado = "\nNome: " + usuario['nome'] + "  Email: " + usuario['email']
+        if usuario['nome'] == nome_maiusculo:
+            resultado = "\nNome: " + \
+                usuario['nome'] + "  Email: " + usuario['email']
             print(resultado)
-        else:
-            print("\nUsuário não encontrado")
+            usuario_encontrado = True
+    if usuario_encontrado == False:
+        print("\nUsuário não encontrado")
     mostrar_menu()
 
 # def remover_usuario_por_email()
 
 # def alterar_nome_por_email()
 
+
 def encerrar():
     sys.exit()
+
 
 def default():
     print("\nOPÇÃO INVÁLIDA")
@@ -65,7 +78,7 @@ def default():
 while True:
     if opcao == "1":
         cadastro()
-    elif opcao == "2": 
+    elif opcao == "2":
         mostrar_usuarios_por_cadastro()
     elif opcao == "3":
         mostrar_usuarios_por_ordem_alfabetica()
