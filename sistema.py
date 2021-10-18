@@ -38,12 +38,29 @@ def mostrar_usuarios_por_cadastro():
         print("Nome: " + usuario['nome'] + "  Email: " + usuario['email']) 
     mostrar_menu()
 
+# def mostrar_usuarios_por_ordem_alfabetica()
+
+def buscar_usuario_pelo_nome():
+    nome_busca = input("\nQual usuário deseja buscar? Favor digitar nome completo: ")
+    for usuario in usuarios:
+        if usuario['nome'] == nome_busca:
+            resultado = "\nNome: " + usuario['nome'] + "  Email: " + usuario['email']
+            print(resultado)
+        else:
+            print("\nUsuário não encontrado")
+    mostrar_menu()
+
+# def remover_usuario_por_email()
+
+# def alterar_nome_por_email()
+
 def encerrar():
     sys.exit()
 
 def default():
     print("\nOPÇÃO INVÁLIDA")
     mostrar_menu()
+
 
 while True:
     if opcao == "1":
