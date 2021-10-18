@@ -1,4 +1,5 @@
 import sys
+import string
 
 print("======== SISTEMA DE INSCRIÇÕES ========")
 
@@ -25,10 +26,11 @@ def cadastro():
     nome = input("\nDigite o nome completo do usuário: ")
     email = input ("Digite o email do usuário: ")
 
-    usuarios.append({'nome': nome, 'email': email})
+    nome_maiusculo = string.capwords(nome)
+
+    usuarios.append({'nome': nome_maiusculo, 'email': email})
 
     print("\n-------- USUÁRIO CADASTRADO COM SUCESSO -------- ")
-
     mostrar_menu()
 
 def mostrar_usuarios_por_cadastro():
