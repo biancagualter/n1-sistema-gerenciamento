@@ -4,11 +4,13 @@ import string
 print("======== SISTEMA DE INSCRIÇÕES ========")
 
 opcao = ''
-usuarios = [{"nome": "João Silva", "email": "joaosilva@email.com"}]
-
+usuarios = [
+    {"nome": "João Silva", "email": "joaosilva@email.com"}, 
+    {"nome": "Caroline Santos", "email": "carolinesantos@email.com"}
+]
 
 def mostrar_menu():
-    print("\n O que deseja fazer?\n")
+    print ("\n O que deseja fazer?\n")
 
     print("1. Novo cadastro")
     print("2. Listar usuários por ordem de cadastro")
@@ -19,28 +21,29 @@ def mostrar_menu():
     print("7. Fechar")
 
     global opcao
-    opcao = input(
-        "\nDigite o número correspondente a ação que deseja realizar: ")
-
+    opcao = input("\nDigite o número correspondente a ação que deseja realizar: ")
 
 mostrar_menu()
 
-
 def cadastro():
     nome = input("\nDigite o nome completo do usuário: ")
-    email = input("Digite o email do usuário: ")
+    email = input ("Digite o email do usuário: ")
 
     nome_maiusculo = string.capwords(nome)
+    email_minusculo = email.lower()
 
-    usuarios.append({'nome': nome_maiusculo, 'email': email})
+    usuarios.append({'nome': nome_maiusculo, 'email': email_minusculo})
 
     print("\n-------- USUÁRIO CADASTRADO COM SUCESSO -------- ")
     mostrar_menu()
 
-
 def mostrar_usuarios_por_cadastro():
-    for usuario in usuarios:
-        print("Nome: " + usuario['nome'] + "  Email: " + usuario['email'])
+    if len(usuarios) >= 1:
+        for usuario in usuarios:
+            print("Nome: " + usuario['nome'] + "  Email: " + usuario['email']) 
+    else:
+        print("Não há usuários cadastrados")
+        
     mostrar_menu()
 
 # def mostrar_usuarios_por_ordem_alfabetica()
