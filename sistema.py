@@ -86,8 +86,28 @@ def remover_usuario_por_email():
     if usuario_encontrado == False:
         print("\nUsuário não encontrado")
     mostrar_menu()
+    
+    
+def alterar_nome_por_email():
+    email_usuario_a_ser_alterado = input(
+        "\nQual usuário deseja alterar o nome? Favor digitar o email do usuário: ")
+    email_minusculo = email_usuario_a_ser_alterado.lower()
+    usuario_encontrado = False
+    for usuario in usuarios:
+        if usuario['email'] == email_minusculo:
+            resultado = "\nNome: " + \
+                usuario['nome'] + "  Email: " + usuario['email']
+            usuario_encontrado = True
+            print(resultado)
+            novo_nome = input(
+                '\nComo deseja que o nome do usuário seja salvo? ')
+            nome_maiusculo = string.capwords(novo_nome)
+            usuario['nome'] = nome_maiusculo
+            print("\nSalvo com sucesso!")
+    if usuario_encontrado == False:
+        print('\nUsuário não encontrado')
+    mostrar_menu()
 
-# def alterar_nome_por_email()
 
 
 def encerrar():
