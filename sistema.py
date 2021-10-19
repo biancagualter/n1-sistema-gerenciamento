@@ -46,7 +46,15 @@ def mostrar_usuarios_por_cadastro():
         
     mostrar_menu()
 
-# def mostrar_usuarios_por_ordem_alfabetica()
+def mostrar_usuarios_por_ordem_alfabetica():
+    usuarios_alfabeticos = sorted(usuarios, key=lambda obj: obj['nome'])
+    if len(usuarios) >= 1:
+        for usuario in usuarios_alfabeticos:
+            print("Nome: " + usuario['nome'] + "  Email: " + usuario['email'])
+    else:
+        print("Não há usuários cadastrados")
+
+    mostrar_menu()
 
 
 def buscar_usuario_pelo_nome():
