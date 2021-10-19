@@ -64,7 +64,20 @@ def buscar_usuario_pelo_nome():
         print("\nUsuário não encontrado")
     mostrar_menu()
 
-# def remover_usuario_por_email()
+def remover_usuario_por_email():
+    email_usuario_a_ser_removido = input(
+        "\nQual usuário deseja remover? Favor digitar o email do usuário: ")
+    email_minusculo = email_usuario_a_ser_removido.lower()
+    usuario_encontrado = False
+    for usuario in usuarios:
+        if usuario['email'] == email_minusculo:
+            posicao = usuarios.index(usuario)
+            usuarios.pop(posicao)
+            print("\nUsuário removido com sucesso!")
+            usuario_encontrado = True
+    if usuario_encontrado == False:
+        print("\nUsuário não encontrado")
+    mostrar_menu()
 
 # def alterar_nome_por_email()
 
